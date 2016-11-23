@@ -1,6 +1,6 @@
 import os
 gettext = lambda s: s
-DATA_DIR = os.path.dirname(os.path.dirname(__file__))
+DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
 """
 Django settings for studiorec project.
 
@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'o*(w+21-=)#s*z7pf&tv$aszntwt9+%3gaqeq39u1+4i8igf&b'
+SECRET_KEY = 'studiorec36@amdw4$q%jd-$)t4v2ze3#gdu5k3=&_@^82o@xms2&-ra&8j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -53,7 +53,7 @@ WSGI_APPLICATION = 'studiorec.wsgi.application'
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'America/Mexico_City'
 
@@ -69,7 +69,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
+MEDIA_ROOT = os.path.join(DATA_DIR,  'media')
 STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
 STATICFILES_DIRS = (
@@ -153,6 +153,7 @@ INSTALLED_APPS = (
 
 LANGUAGES = (
     ## Customize this
+    ('es', gettext('es')),
     ('en', gettext('en')),
 )
 
@@ -190,7 +191,7 @@ DATABASES = {
         'CONN_MAX_AGE': 0,
         'ENGINE': 'django.db.backends.sqlite3',
         'HOST': 'localhost',
-        'NAME': 'data/project.db',
+        'NAME': os.path.join(DATA_DIR, 'project.db'),
         'PASSWORD': '',
         'PORT': '',
         'USER': ''
@@ -198,7 +199,7 @@ DATABASES = {
 }
 
 MIGRATION_MODULES = {
-    
+
 }
 
 THUMBNAIL_PROCESSORS = (
