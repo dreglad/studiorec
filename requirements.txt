@@ -1,0 +1,13 @@
+django-cms<3.5
+Django<1.10
+Pillow
+cmsplugin-filer
+django-filer
+djangocms_column
+djangocms_link
+djangocms_style
+djangocms_snippet
+djangocms_googlemap
+djangocms_video
+djangocms-text-ckeditor
+django_select2
