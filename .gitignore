@@ -1,0 +1,9 @@
+*.egg-info
+*.pot
+*.py[co]
+.DS_Store
+.vagrant/
+__pycache__
+dist/
+docs/locale/
+node_modules/
