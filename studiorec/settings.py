@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 import os
 gettext = lambda s: s
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
@@ -167,19 +170,18 @@ CMS_LANGUAGES = {
     1: [
         {
             'public': True,
-            'code': 'en',
+            'code': 'es',
             'hide_untranslated': False,
-            'name': gettext('en'),
+            'name': gettext('es'),
             'redirect_on_fallback': True,
         },
     ],
 }
 
 CMS_TEMPLATES = (
-    ## Customize this
-    ('fullwidth.html', 'Fullwidth'),
-    ('sidebar_left.html', 'Sidebar Left'),
-    ('sidebar_right.html', 'Sidebar Right')
+    # Templates del sitio
+    ('home.html', 'Completo'),
+    ('simple.html', 'Página simple'),
 )
 
 CMS_PERMISSION = True

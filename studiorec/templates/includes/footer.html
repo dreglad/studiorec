@@ -1,0 +1,26 @@
+{% load static cms_tags %}
+<footer id="fh5co-footer" class="overlay blue" style="background-image: url({% static "images/shot0.jpg" %})">
+    <div class="container">
+        <div class="col-sm-4">
+            <img class="logo" src="{% static 'images/logo.png' %}">
+            <h4 class="text-red text-uppercase">{% static_placeholder "footer columna 1 titulo" %}</h4>
+            <p>{% static_placeholder "footer columna 1 texto" %}</p>
+        </div>
+        <div class="col-sm-4">
+
+            <h4 class="text-red text-uppercase">{% static_placeholder "footer columna 2 titulo" %}</h4>
+            <p>{% static_placeholder "footer columna 2 texto" %}</p>
+
+        </div>
+        <div class="col-sm-4">
+            <h4 class="text-red text-uppercase">Síguenos</h4>
+            <p>A través de nuestras redes sociales:</p>
+            <ul class="fh5co-social-icons">
+                <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
+                <li><a href="#"><i class="ti-facebook"></i></a></li>
+                <li><a href="#"><i class="ti-github"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
