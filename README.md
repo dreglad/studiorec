@@ -11,11 +11,18 @@ Versiones más recientes de:
   $ git clone https://github.com/dreglad/studiorec
   ```
 
-  1. Instalar ambiente:
+  1. Iniciar el ambiente:
   ```{r, engine='bash'}
   $ cd studiorec
   $ vagrant up
   ```
+
+## Uso
+  - Frontend: http://127.0.0.1:8080/
+  - Backend: http://127.0.0.1:8080/admin/
+    - Usuario por defecto: *admin*
+    - Contraseña: *webstudio*
+
 
   [1]: https://www.virtualbox.org/ "Oracle Virtualbox"
   [2]: https://www.vagrantup.com/ "Vagrant"
