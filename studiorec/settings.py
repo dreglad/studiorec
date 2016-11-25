@@ -193,7 +193,7 @@ DATABASES = {
         'CONN_MAX_AGE': 0,
         'ENGINE': 'django.db.backends.sqlite3',
         'HOST': 'localhost',
-        'NAME': os.path.join(DATA_DIR, 'project.db'),
+        'NAME': os.path.join(DATA_DIR, 'data.db'),
         'PASSWORD': '',
         'PORT': '',
         'USER': ''
