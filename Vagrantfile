@@ -65,12 +65,32 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    apt-get update
-    apt-get -y dist-upgrade
-    apt-get install -y python-pip python-dev
-    pip install --upgrade pip
-    pip install --upgrade -r /vagrant/requirements.txt
+    export DEBIAN_FRONTEND=noninteractive
+    export LC_ALL=C
+
+    echo "\nUpdating APT cache...\n\n"
+    apt-get -qq update
+
+    echo "\nUpgrading APT packages...\n\n"
+    apt-get -qq -y dist-upgrade
+
+    echo "\nInstalling required APT packages...\n\n"
+    apt-get install -qq -y python-pip python-dev git
+
+    echo "\nUpgrade pip...\n\n"
+    pip install -q --upgrade pip
+
+    echo "\nInstalling python pip requirements...\n\n"
+    pip install -q --upgrade -r /vagrant/requirements.txt
+
+    echo "\nMigrating database...\n\n"
     /vagrant/manage.py migrate
+
+    echo "\nRunning django development server at port 8080...\n\n"
     python /vagrant/manage.py runserver 0.0.0.0:8080 &
+
+    echo "\nListo!\n  Para utilizar, apunta tu navegador hacia:\n\n"
+    echo "    Frontend:\n      http://127.0.0.1:8080/\n\n    Backend:\n      http://127.0.0.1:8080/admin/"
+    echo "           usuario: admin\n        contraseña: studiorec\n\n.\n"
   SHELL
 end

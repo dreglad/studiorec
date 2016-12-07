@@ -1,7 +1,7 @@
 # Studio REC website
 
 ## Requerimientos
-Versiones más recientes de:
+Cualquier sistema con las versiones más recientes de:
  - [Virtualbox][1]
  - [Vagrant][2]
 

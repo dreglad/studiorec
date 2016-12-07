@@ -1,6 +1,8 @@
 django-cms<3.5
 Django<1.10
 Pillow
+#djangocms-cascade
+-e git://github.com/jrief/djangocms-cascade.git#egg=djangocms-cascade
 cmsplugin-filer
 django-filer
 djangocms_column
