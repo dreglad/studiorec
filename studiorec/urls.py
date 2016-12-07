@@ -8,7 +8,12 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+
 admin.autodiscover()
+admin.site.site_header = 'Studio REC'
+admin.site.site_title = 'Studio REC'
+admin.site.index_title = 'Administración del contenido del sitio Studio REC'
+
 
 urlpatterns = [
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap',

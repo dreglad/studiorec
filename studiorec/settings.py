@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from django.utils.translation import ugettext_lazy as _
 
 import os
 gettext = lambda s: s
@@ -134,6 +135,14 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django.contrib.staticfiles',
     'django.contrib.messages',
+
+    'cmsplugin_cascade',
+    'cmsplugin_cascade.clipboard',
+    'cmsplugin_cascade.extra_fields',
+    'cmsplugin_cascade.sharable',
+    'cmsplugin_cascade.link',
+    'cmsplugin_cascade.segmentation',
+
     'cms',
     'menus',
     'sekizai',
@@ -141,8 +150,8 @@ INSTALLED_APPS = (
     'djangocms_text_ckeditor',
     'filer',
     'easy_thumbnails',
-    'djangocms_column',
-    'djangocms_link',
+    # 'djangocms_column',
+    #'djangocms_link',
     'cmsplugin_filer_file',
     'cmsplugin_filer_folder',
     'cmsplugin_filer_image',
@@ -153,6 +162,41 @@ INSTALLED_APPS = (
     'djangocms_video',
     'studiorec'
 )
+
+CMSPLUGIN_CASCADE_PLUGINS = (
+    'cmsplugin_cascade.bootstrap3',
+    'cmsplugin_cascade.link',
+    'cmsplugin_cascade.generic',
+    'cmsplugin_cascade.segmentation',
+)
+
+CMS_PLACEHOLDER_CONF = {
+    'header_background_image': {
+        'plugins': ['FilerImagePlugin'],
+        'name': _('Imagen de fondo en Header'),
+        'limits': {'global': 1},
+    },
+    'contenido': {
+        'parent_classes': {'BootstrapContainerPlugin': None,},
+        #'plugins': ['BootstrapContainerPlugin'],
+    },
+}
+
+CMSPLUGIN_CASCADE = {
+    'bootstrap3': (
+        ('xs', (768, 'mobile', _("mobile phones"), 750, 768)),
+        ('sm', (768, 'tablet', _("tablets"), 750, 992)),
+        ('md', (992, 'laptop', _("laptops"), 970, 1200)),
+        ('lg', (1200, 'desktop', _("large desktops"), 1170, 2500)),
+    ),
+    'plugins_with_sharables': {
+        'TextLinkPlugin':  ('link',),  # and optionally other fields
+    },
+    'contenido': {
+        'parent_classes': {'BootstrapContainerPlugin': None,},
+        'plugins': ['BootstrapContainerPlugin'],
+    },
+}
 
 LANGUAGES = (
     ## Customize this
@@ -186,8 +230,6 @@ CMS_TEMPLATES = (
 
 CMS_PERMISSION = True
 
-CMS_PLACEHOLDER_CONF = {}
-
 DATABASES = {
     'default': {
         'CONN_MAX_AGE': 0,
@@ -210,3 +252,8 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters'
 )
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
