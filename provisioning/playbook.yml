@@ -1,0 +1,42 @@
+---
+# Facturas playbook
+- hosts: default
+
+  tasks:
+    - name: APT cache updated and APT packages upgraded
+      apt: update_cache=yes upgrade=dist
+
+    - name: Required APT packages installed
+      apt: pkg={{ item }}
+      with_items:
+        - git
+        - gettext
+        - libjpeg-dev
+        - memcached
+        - python3-dev
+        - python3-pip
+
+    - name: Supervior APT package installed
+      apt: pkg=supervisor
+      notify: Enable supervisor
+
+    # If supervisor was installed, force handler before proceeding
+    - meta: flush_handlers
+
+    - name: pip updated to the latest version
+      pip: executable=pip3 name=pip state=latest
+
+    - name: Required Python packages installed and at their latest version
+      pip: executable=pip3 requirements=/vagrant/requirements.txt state=latest
+      tags: ['pip']
+
+    - name: Webserver supervised
+      copy: src=files/supervisor-studiorec.conf dest=/etc/supervisor/conf.d/studiorec.conf
+      notify: Restart supervisor
+
+  handlers:
+    - name: Enable supervisor
+      shell: systemctl enable supervisor && systemctl start supervisor
+
+    - name: Restart supervisor
+      shell: systemctl start supervisor && /etc/init.d/supervisor reload && sudo supervisorctl reread
