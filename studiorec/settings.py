@@ -347,22 +347,10 @@ CMS_TEMPLATES = (
 CMS_PERMISSION = True
 
 DATABASES = {
-    'staging': {
+    'default': {
         'CONN_MAX_AGE': 0,
         'ENGINE': 'django.db.backends.sqlite3',
-        'HOST': 'localhost',
         'NAME': os.path.join(DATA_DIR, 'data.db'),
-        'PASSWORD': '',
-        'PORT': '',
-        'USER': ''
-    },
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'videos',
-        'USER': 'root',
-        'PASSWORD': 'pass',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
     }
 }
 
