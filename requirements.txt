@@ -1,7 +1,10 @@
 django-cms<3.5
 Django<1.11
+#mysqlclient
 
 Pillow
+pytz
+djangocms-forms
 cmsplugin-filer
 django-filer
 djangocms_column
