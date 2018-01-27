@@ -25,6 +25,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'djangocms_admin_style',
+    # 'material',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -33,6 +34,8 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django.contrib.staticfiles',
     'django.contrib.messages',
+
+    'djangocms_forms',
 
     'cms',
     'menus',
@@ -49,7 +52,7 @@ INSTALLED_APPS = (
     'cmsplugin_filer_utils',
     'djangocms_style',
     'djangocms_snippet',
-    'djangocms_googlemap',
+    # 'djangocms_googlemap',
     'djangocms_video',
     'cmsplugin_plain_text',
 
@@ -63,6 +66,15 @@ INSTALLED_APPS = (
 
 ROOT_URLCONF = 'studiorec.urls'
 WSGI_APPLICATION = 'studiorec.wsgi.application'
+
+
+DJANGOCMS_FORMS_WIDGET_CSS_CLASSES = {'__all__': ('form-control', ) }
+
+
+
+DJANGOCMS_FORMS_TEMPLATES = (
+    ('form_template.html', _('Default')),
+)
 
 
 # Database
@@ -223,7 +235,7 @@ CMS_PLACEHOLDER_CONF = {
         'name': _("Footer: first column title"),
         'plugins': ['PlaintextPlugin'],
         'limits': {
-            'global': 1,
+            'global': 2,
         },
         'default_plugins': [
             {
@@ -238,7 +250,7 @@ CMS_PLACEHOLDER_CONF = {
         'name': _("Footer: second column title"),
         'plugins': ['PlaintextPlugin'],
         'limits': {
-            'global': 1,
+            'global': 2,
         },
         'default_plugins': [
             {
@@ -256,6 +268,170 @@ CMS_PLACEHOLDER_CONF = {
     'footer-col2-content': {
         'name': _("Footer: second column content"),
         # 'plugins': ['TextPlugin', 'PlaintextPlugin'],
+    },
+    'Recuadro1_Titulo': {
+        'plugins': ['TextPlugin'],
+        'default_plugins': [
+            {
+                'plugin_type': 'TextPlugin',
+                'values': {
+                    'body': ('Título del recuadro'),
+                },
+            },
+        ],
+        #'plugins': ['BootstrapContainerPlugin'],
+    },
+    'Recuadro2_Titulo': {
+        'plugins': ['TextPlugin'],
+        'default_plugins': [
+            {
+                'plugin_type': 'TextPlugin',
+                'values': {
+                    'body': ('Título del recuadro'),
+                },
+            },
+        ],
+        #'plugins': ['BootstrapContainerPlugin'],
+    },
+    'Recuadro3_Titulo': {
+        'plugins': ['TextPlugin'],
+        'default_plugins': [
+            {
+                'plugin_type': 'TextPlugin',
+                'values': {
+                    'body': ('Título del recuadro'),
+                },
+            },
+        ],
+        #'plugins': ['BootstrapContainerPlugin'],
+    },
+    'Titulo1': {
+        'plugins': ['PlaintextPlugin'],
+        'limits': {
+            'global': 2,
+        },
+        'default_plugins': [
+            {
+                'plugin_type': 'PlaintextPlugin',
+                'values': {
+                    'body': _("Título 1"),
+                },
+            },
+        ],
+    },
+    'Titulo2': {
+        'plugins': ['PlaintextPlugin'],
+        'limits': {
+            'global': 2,
+        },
+        'default_plugins': [
+            {
+                'plugin_type': 'PlaintextPlugin',
+                'values': {
+                    'body': _("Título 2"),
+                },
+            },
+        ],
+    },
+    'Titulo3': {
+        'plugins': ['PlaintextPlugin'],
+        'limits': {
+            'global': 2,
+        },
+        'default_plugins': [
+            {
+                'plugin_type': 'PlaintextPlugin',
+                'values': {
+                    'body': _("Título 3"),
+                },
+            },
+        ],
+    },
+    'Titulo4': {
+        'plugins': ['PlaintextPlugin'],
+        'limits': {
+            'global': 2,
+        },
+        'default_plugins': [
+            {
+                'plugin_type': 'PlaintextPlugin',
+                'values': {
+                    'body': _("Título 4"),
+                },
+            },
+        ],
+    },
+    'Imagen1': {
+        'plugins': ['FilerImagePlugin', 'VideoPlayerPlugin'],
+        'limits': {
+            'global': 2,
+        },
+    },
+    'Imagen2': {
+        'plugins': ['FilerImagePlugin', 'VideoPlayerPlugin'],
+        'limits': {
+            'global': 2,
+        },
+    },
+    'Imagen3': {
+        'plugins': ['FilerImagePlugin', 'VideoPlayerPlugin'],
+        'limits': {
+            'global': 2,
+        },
+    },
+    'Imagen4': {
+        'plugins': ['FilerImagePlugin', 'VideoPlayerPlugin'],
+        'limits': {
+            'global': 2,
+        },
+    },
+    'Imagen5': {
+        'plugins': ['FilerImagePlugin', 'VideoPlayerPlugin'],
+        'limits': {
+            'global': 2,
+        },
+    },
+    'Imagen6': {
+        'plugins': ['FilerImagePlugin', 'VideoPlayerPlugin'],
+        'limits': {
+            'global': 2,
+        },
+    },
+    'Imagen7': {
+        'plugins': ['FilerImagePlugin', 'VideoPlayerPlugin'],
+        'limits': {
+            'global': 2,
+        },
+    },
+    'Imagen8': {
+        'plugins': ['FilerImagePlugin', 'VideoPlayerPlugin'],
+        'limits': {
+            'global': 2,
+        },
+    },
+    'Imagen9': {
+        'plugins': ['FilerImagePlugin', 'VideoPlayerPlugin'],
+        'limits': {
+            'global': 2,
+        },
+    },
+    'Imagen10': {
+        'plugins': ['FilerImagePlugin', 'VideoPlayerPlugin'],
+        'limits': {
+            'global': 2,
+        },
+    },
+    'Imagen11': {
+        'plugins': ['FilerImagePlugin', 'VideoPlayerPlugin'],
+        'limits': {
+            'global': 2,
+        },
+    },
+    'Imagen12': {
+        'plugins': ['FilerImagePlugin', 'VideoPlayerPlugin'],
+        'limits': {
+            'global': 2,
+        },
     },
 }
 
@@ -342,6 +518,10 @@ CMS_LANGUAGES = {
 CMS_TEMPLATES = (
     ('home.html', _('Home')),
     ('simple.html', _('Simple page')),
+    ('servicios.html', _('Servicios (2)')),
+    ('servicios4.html', _('Servicios (4)')),
+    ('servicios_fotos.html', _('Servicios con más fotos')),
+    ('paquetes.html', _('Paquetes')),
 )
 
 CMS_PERMISSION = True
@@ -350,8 +530,20 @@ DATABASES = {
     'default': {
         'CONN_MAX_AGE': 0,
         'ENGINE': 'django.db.backends.sqlite3',
+        'HOST': 'localhost',
         'NAME': os.path.join(DATA_DIR, 'data.db'),
+        'PASSWORD': '',
+        'PORT': '',
+        'USER': ''
     }
+    #'stg': {
+    #    'ENGINE': 'django.db.backends.mysql', 
+    #    'NAME': 'videos',
+    #    'USER': 'root',
+    #    'PASSWORD': 'pass',
+    #    'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+    #    'PORT': '3306',
+    #}
 }
 
 MIGRATION_MODULES = {

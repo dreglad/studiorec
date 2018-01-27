@@ -1,3 +1,46 @@
+$(function() {
+	$('.image-gallery').magnificPopup({
+	  delegate: 'img',
+	  type: 'image',
+	  gallery: {
+	      enabled: true
+	    },
+	  callbacks: {
+	    elementParse: function(item) {
+	      // Function will fire for each target element
+	      // "item.el" is a target DOM element (if present)
+	      // "item.src" is a source that you may modify)
+	      item.src = $(item.el).attr('src');
+	    }
+	  }
+	  // other options
+	});
+});
+
+var verVideo = function() {
+	console.log('player');
+
+	$.magnificPopup.open({
+	  items: {
+	    src: '<div style="width:640px; height:360px; margin:0 auto;" id="player"></div>'
+	  },
+	  callbacks: {
+	  	open: function() {
+    		console.log('Popup is opened');
+    		var player = new Clappr.Player({
+				source: "/static/video.mp4",
+				parentId: "#player",
+				autoPlay: true
+			});
+  		}
+	  },
+	  type: 'inline'
+
+	  // You may add options here, they're exactly the same as for $.fn.magnificPopup call
+	  // Note that some settings that rely on click event (like disableOn or midClick) will not work here
+	}, 0);
+}
+
 ;(function () {
 	
 	'use strict';

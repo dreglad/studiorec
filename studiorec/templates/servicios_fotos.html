@@ -4,6 +4,10 @@
 {% block mainclass %}main-page{% endblock %}
 {% block content %}
     {% placeholder "contenido" %}
-    {% block servicios %}{% include "includes/servicios2.html" %}{% endblock %}
+    {% block servicios %}
+    <div class="image-gallery">
+    {% include "includes/servicios_fotos.html" %}
+    </div>
+    {% endblock %}
 {% endblock %}
 {% block prefooter %}{% include "includes/prefooter.html" %}{% endblock %}

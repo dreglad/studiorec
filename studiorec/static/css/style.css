@@ -68,6 +68,10 @@ a {
     color: #2e2e2e;
     border-bottom: 2px solid $color1; }
 
+a.filer_image_link:hover {
+  border:none !important;
+}
+
 input {
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;

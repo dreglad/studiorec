@@ -2,5 +2,8 @@
 {% load cms_tags %}
 
 {% block mainclass %}main-page{% endblock %}
-{% block content %}{% placeholder "contenido" %}{% endblock %}
+{% block content %}
+    {% placeholder "contenido" %}
+    {% block servicios %}{% include "includes/servicios4.html" %}{% endblock %}
+{% endblock %}
 {% block prefooter %}{% include "includes/prefooter.html" %}{% endblock %}

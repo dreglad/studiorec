@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load cms_tags material_form %}
+
+
+{% block stylesheets %}{{ block.super }}
+{% include 'material/includes/material_css.html' %}
+{% endblock %}
+
+{% block bottom_scripts %}{{ block.super }}
+{% include 'material/includes/material_js.html' %}
+{% endblock %}
+
+
+{% block content %}
+{% placeholder "contenido" %}
+<form method="POST">
+    {% csrf_token %}
+    {% form form=form %}{% endform %}
+    <button type="submit" name="_submit" class="btn">Enviar</button>
+</form>
+{% endblock %}
+{# {% block darkslider %}{% include "includes/darkslider.html" %}{% endblock %} #}
+{% block prefooter %}{% include "includes/prefooter.html" %}{% endblock %}
+{% block slider %}{% include "includes/slider.html" %}{% endblock %}

@@ -26,7 +26,7 @@ Themify Icons
 }
 
 // Override Variables
-$brand-primary: #1f3549;
+$brand-primary: #b30000;
 $brand-success: #00e195;
 $brand-info: #1f3549;
 $brand-warning: #ffd042;
@@ -114,6 +114,10 @@ a {
     color: $brand-darker;
     border-bottom: 2px solid $brand-primary;
   }
+
+  &.filer_image_link:hover {
+      border:none !important;
+    }
 }
 
 input {
@@ -260,9 +264,19 @@ textarea {
           color: $brand-primary !important;
         }
       }
-      .sf-menu li.active > a {
+
+      .sf-menu li.selected > a {
+        color: $brand-primary;
+      }
+
+      .sf-menu li.has-dropdown > a {
+        color: rgba(238, 238, 238, .6) !important;
+      }
+
+      .sf-menu li.has-dropdown.ancestor > a {
         color: $brand-primary !important;
       }
+
       > .sf-menu > li > a {
         padding-top: 2em;
         padding-bottom: 2em;
@@ -341,7 +355,7 @@ textarea {
 .sf-menu li.sfHover a,
 .sf-menu ul li:hover a,
 .sf-menu ul li.sfHover a,
-.sf-menu li.active a {
+.sf-menu li.selected a {
   color: $brand-white;
 }
 
@@ -392,7 +406,7 @@ textarea {
 
 #fh5co-menu-wrap {
   .sf-menu a {
-    padding: 1.2em;
+    padding: 0 1em;
   }
 }
 
@@ -400,7 +414,7 @@ textarea {
   > li {
     > ul {
       li {
-        &.active > a {
+        &.selected > a {
           color: $brand-primary !important;
         }
       }
@@ -543,7 +557,7 @@ textarea {
     margin: 0;
     li {
       list-style: none;
-      &.active {
+      &.selected {
         > a {
           color: $brand-white;
         }
@@ -560,6 +574,7 @@ textarea {
         color: rgba(255, 255, 255, 1);
       }
     }
+
     .fh5co-sub-ddown {
       position: relative;
     }
@@ -867,6 +882,7 @@ Components
     outline: none !important;
     border-color: transparent;
   }
+
   &.fh5co-btn-icon {
     text-transform: none !important;
     letter-spacing: normal !important;
@@ -1406,6 +1422,7 @@ Components
           list-style: none;
           padding: 0;
           margin: 0 0 10px 0;
+          text-align: left;
         }
       }
     }
@@ -1428,7 +1445,7 @@ Components
       padding: 0;
       margin: 0 0 .5em 0;
       list-style: none;
-      &.active {
+      &.selected {
         a {
           color: $brand-darker;
           border-bottom: 2px solid $brand-primary;

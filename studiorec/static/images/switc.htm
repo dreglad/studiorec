@@ -1,0 +1,590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0063)http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <title>Flow tasks — django-viewflow documentation</title>
+    
+    <link rel="stylesheet" href="./switc_files/nature.css" type="text/css">
+    <link rel="stylesheet" href="./switc_files/pygments.css" type="text/css">
+    <link rel="stylesheet" href="./switc_files/badge_only.css" type="text/css">
+    <link rel="stylesheet" href="./switc_files/readthedocs-doc-embed.css" type="text/css">
+    
+    <script type="text/javascript" async="" src="./switc_files/ga.js"></script><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="./switc_files/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="./switc_files/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="./switc_files/underscore.js"></script>
+    <script type="text/javascript" src="./switc_files/doctools.js"></script>
+    <script type="text/javascript" src="./switc_files/readthedocs-doc-embed.js"></script>
+    <link rel="top" title="django-viewflow documentation" href="http://django-viewflow.readthedocs.io/en/latest/index.html">
+    <link rel="next" title="Locking" href="http://django-viewflow.readthedocs.io/en/latest/locking.html">
+    <link rel="prev" title="Core concepts" href="http://django-viewflow.readthedocs.io/en/latest/core_concepts.html">
+ 
+<!-- RTD Extra Head -->
+
+
+
+<!-- 
+Read the Docs is acting as the canonical URL for your project. 
+If you want to change it, more info is available in our docs:
+  http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://django-viewflow.readthedocs.org/en/latest/flow_tasks.html">
+
+<script type="text/javascript">
+  // This is included here because other places don't have access to the pagename variable.
+  var READTHEDOCS_DATA = {
+    project: "django-viewflow",
+    version: "latest",
+    language: "en",
+    page: "flow_tasks",
+    builder: "sphinx",
+    theme: "nature",
+    docroot: "/docs/",
+    source_suffix: ".rst",
+    api_host: "https://readthedocs.org/",
+    commit: "3a8cb0cf6b77d4affcbc3f77505763cf7e977c0a"
+  }
+  // Old variables
+  var doc_version = "latest";
+  var doc_slug = "django-viewflow";
+  var page_name = "flow_tasks";
+  var html_theme = "nature";
+</script>
+<!-- RTD Analytics Code -->
+<!-- Included in the header because you don't have a footer block. -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17997319-1']);
+  _gaq.push(['_trackPageview']);
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- end RTD Analytics Code -->
+<!-- end RTD <extrahead> -->
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="http://django-viewflow.readthedocs.io/en/latest/genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="http://django-viewflow.readthedocs.io/en/latest/locking.html" title="Locking" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="http://django-viewflow.readthedocs.io/en/latest/core_concepts.html" title="Core concepts" accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="http://django-viewflow.readthedocs.io/en/latest/index.html">django-viewflow documentation</a> »</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="flow-tasks">
+<h1>Flow tasks<a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#flow-tasks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="start">
+<h2>Start<a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#start" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="viewflow.flow.Start">
+<em class="property">class </em><code class="descclassname">viewflow.flow.</code><code class="descname">Start</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.Start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start process event</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">start</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">Start</span><span class="p">(</span><span class="n">StartView</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s">"some_process_field"</span><span class="p">])</span> \
+    <span class="o">.</span><span class="n">Available</span><span class="p">(</span><span class="k">lambda</span> <span class="n">user</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">is_super_user</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">Activate</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">first_start</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In case of function based view:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">start</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">Start</span><span class="p">(</span><span class="n">start_process</span><span class="p">)</span>
+
+<span class="nd">@flow_start_view</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">start_process</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">activation</span><span class="p">):</span>
+     <span class="k">if</span> <span class="ow">not</span> <span class="n">activation</span><span class="o">.</span><span class="n">has_perm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">):</span>
+         <span class="k">raise</span> <span class="n">PermissionDenied</span>
+
+     <span class="n">activation</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span> <span class="ow">or</span> <span class="bp">None</span><span class="p">)</span>
+     <span class="n">form</span> <span class="o">=</span> <span class="n">SomeForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span> <span class="ow">or</span> <span class="bp">None</span><span class="p">)</span>
+
+     <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+          <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+          <span class="n">activation</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
+          <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="p">{</span><span class="s">'activation'</span><span class="p">:</span> <span class="n">activation</span><span class="p">,</span> <span class="s">'form'</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Ensure to include <cite>{{ activation.management_form }}</cite> inside template, to proper
+track when task was started and other task performance statistics:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;form method="POST"&gt;
+     {{ form }}
+     {{ activation.management_form }}
+     &lt;button type="submit"/&gt;
+&lt;/form&gt;
+</pre></div>
+</div>
+<dl class="method">
+<dt id="viewflow.flow.Start.Available">
+<code class="descname">Available</code><span class="sig-paren">(</span><em>owner=None</em>, <em>**owner_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.Start.Available" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make process start action available for the User
+accepts user lookup kwargs or callable predicate :: User -&gt; bool:</p>
+<div class="highlight-python"><div class="highlight"><pre>.Available(username='employee')
+.Available(lambda user: user.is_super_user)
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="viewflow.flow.Start.Permission">
+<code class="descname">Permission</code><span class="sig-paren">(</span><em>permission=None</em>, <em>auto_create=False</em>, <em>obj=None</em>, <em>help_text=None</em><span class="sig-paren">)</span><a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.Start.Permission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make task available for users with specific permission,
+aceps permissions name of callable :: Process -&gt; permission_name:</p>
+<div class="highlight-python"><div class="highlight"><pre>.Permission('my_app.can_approve')
+.Permission(lambda process: 'my_app.department_manager_{}'.format(process.depratment.pk))
+</pre></div>
+</div>
+<p>Task specific permission could be auto created during migration:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Creates `processcls_app.can_do_task_processcls` permission</span>
+<span class="n">do_task</span> <span class="o">=</span> <span class="n">View</span><span class="p">()</span><span class="o">.</span><span class="n">Permission</span><span class="p">(</span><span class="n">auto_create</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c"># You can specify permission codename and description right here</span>
+<span class="c"># The following creates `processcls_app.can_execure_task` permission</span>
+<span class="n">do_task</span> <span class="o">=</span> <span class="n">View</span><span class="p">()</span><span class="o">.</span><span class="n">Permission</span><span class="p">(</span><span class="s">'can_execute_task'</span><span class="p">,</span> <span class="n">help_text</span><span class="o">=</span><span class="s">'Custom text'</span><span class="p">,</span> <span class="n">auto_create</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="view">
+<h2>View<a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#view" title="Permalink to this headline">¶</a></h2>
+<p>View task represents user task performed by interaction with django view.</p>
+<dl class="class">
+<dt id="viewflow.flow.View">
+<em class="property">class </em><code class="descclassname">viewflow.flow.</code><code class="descname">View</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.View" title="Permalink to this definition">¶</a></dt>
+<dd><p>View task</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">task</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">View</span><span class="p">(</span><span class="n">some_view</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">Permission</span><span class="p">(</span><span class="s">'my_app.can_do_task'</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">Next</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">next_task</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In case of function based view:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">task</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">Task</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+
+<span class="nd">@flow_start_view</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">task</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">activation</span><span class="p">):</span>
+     <span class="k">if</span> <span class="ow">not</span> <span class="n">activation</span><span class="o">.</span><span class="n">flow_task</span><span class="o">.</span><span class="n">has_perm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">):</span>
+         <span class="k">raise</span> <span class="n">PermissionDenied</span>
+
+     <span class="n">activation</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span> <span class="ow">or</span> <span class="bp">None</span><span class="p">)</span>
+     <span class="n">form</span> <span class="o">=</span> <span class="n">SomeForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span> <span class="ow">or</span> <span class="bp">None</span><span class="p">)</span>
+
+     <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+          <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+          <span class="n">activation</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
+          <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="p">{</span><span class="s">'activation'</span><span class="p">:</span> <span class="n">activation</span><span class="p">,</span> <span class="s">'form'</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Ensure to include <cite>{{ activation.management_form }}</cite> inside template, to proper
+track when task was started and other task performance statistics:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;form method="POST"&gt;
+     {{ form }}
+     {{ activation.management_form }}
+     &lt;button type="submit"/&gt;
+&lt;/form&gt;
+</pre></div>
+</div>
+<dl class="method">
+<dt id="viewflow.flow.View.Assign">
+<code class="descname">Assign</code><span class="sig-paren">(</span><em>owner=None</em>, <em>**owner_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.View.Assign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign task to the User immediately on activation,
+accepts user lookup kwargs or callable :: Process -&gt; User:</p>
+<div class="highlight-python"><div class="highlight"><pre>.Assign(username='employee')
+.Assign(lambda process: process.created_by)
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="viewflow.flow.View.Permission">
+<code class="descname">Permission</code><span class="sig-paren">(</span><em>permission=None</em>, <em>auto_create=False</em>, <em>obj=None</em>, <em>help_text=None</em><span class="sig-paren">)</span><a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.View.Permission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make task available for users with specific permission,
+aceps permissions name of callable :: Process -&gt; permission_name:</p>
+<div class="highlight-python"><div class="highlight"><pre>.Permission('my_app.can_approve')
+.Permission(lambda process: 'my_app.department_manager_{}'.format(process.depratment.pk))
+</pre></div>
+</div>
+<p>Task specific permission could be auto created during migration:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Creates `processcls_app.can_do_task_processcls` permission</span>
+<span class="n">do_task</span> <span class="o">=</span> <span class="n">View</span><span class="p">()</span><span class="o">.</span><span class="n">Permission</span><span class="p">(</span><span class="n">auto_create</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c"># You can specify permission codename and description right here</span>
+<span class="c"># The following creates `processcls_app.can_execure_task` permission</span>
+<span class="n">do_task</span> <span class="o">=</span> <span class="n">View</span><span class="p">()</span><span class="o">.</span><span class="n">Permission</span><span class="p">(</span><span class="s">'can_execute_task'</span><span class="p">,</span> <span class="n">help_text</span><span class="o">=</span><span class="s">'Custom text'</span><span class="p">,</span> <span class="n">auto_create</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="viewflow.flow.flow_view">
+<code class="descclassname">viewflow.flow.</code><code class="descname">flow_view</code><span class="sig-paren">(</span><em>**lock_args</em><span class="sig-paren">)</span><a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.flow_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator that locks and runs the flow view in transaction.</p>
+<p>Expects view with the signature <cite>(request, activation, **kwargs)</cite>
+or CBV view that implements TaskActivation, in this case, dispatch
+with would be called with <cite>(request, **kwargs)</cite></p>
+<p>Returns <cite>(request, flow_task, process_pk, task_pk, **kwargs)</cite></p>
+</dd></dl>
+
+<p>Views decorated with <cite>flow_view</cite> decorator executed in transaction. If an error happens in view or
+during nexttask activation, database rollback will be performed and no changes will be stored.</p>
+</div>
+<div class="section" id="job">
+<h2>Job<a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#job" title="Permalink to this headline">¶</a></h2>
+<p>Job task represents user task performed in background by celery</p>
+<dl class="function">
+<dt id="viewflow.flow.flow_job">
+<code class="descclassname">viewflow.flow.</code><code class="descname">flow_job</code><span class="sig-paren">(</span><em>**lock_args</em><span class="sig-paren">)</span><a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.flow_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator that prepares celery task for execution</p>
+<p>Makes celery job function with the following signature
+<cite>(flow_task-strref, process_pk, task_pk, **kwargs)</cite></p>
+<p>Expects actual celery job function which has the following signature <cite>(activation, **kwargs)</cite>
+If celery task class implements activation interface, job function is
+called without activation instance <cite>(**kwargs)</cite></p>
+<p>Process instance is locked only before and after the function execution.
+Please avoid any process state modification during the celery job.</p>
+</dd></dl>
+
+<p>If any error will happens during job execution task would be moved to <cite>error</cite> state, and available
+for administrator desision in admin interface. If error will happens on next task ativation, for
+example, error raised on <cite>If</cite> conditions, job task will be commited and marked as done, but the
+failed for activation task would be created in <cite>error</cite> state.</p>
+</div>
+<div class="section" id="if">
+<h2>If<a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#if" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="viewflow.flow.If">
+<em class="property">class </em><code class="descclassname">viewflow.flow.</code><code class="descname">If</code><span class="sig-paren">(</span><em>cond</em><span class="sig-paren">)</span><a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.If" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activates one of paths based on condition</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">check_decision</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">approved</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">OnTrue</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">approved</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">OnFalse</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="switch">
+<h2>Switch<a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#switch" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="viewflow.flow.Switch">
+<em class="property">class </em><code class="descclassname">viewflow.flow.</code><code class="descname">Switch</code><a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.Switch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activates first path with matched condition</p>
+</dd></dl>
+
+</div>
+<div class="section" id="split">
+<h2>Split<a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#split" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="viewflow.flow.Split">
+<em class="property">class </em><code class="descclassname">viewflow.flow.</code><code class="descname">Split</code><a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.Split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activates outgoing path in-parallel depends on per-path condition.</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">split_on_decision</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">Split</span><span class="p">()</span> \
+    <span class="o">.</span><span class="n">Next</span><span class="p">(</span><span class="n">check_post</span><span class="p">,</span> <span class="n">cond</span><span class="o">=</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="p">,</span><span class="n">is_check_post_required</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">Next</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">perform_task_always</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="join">
+<h2>Join<a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#join" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="viewflow.flow.Join">
+<em class="property">class </em><code class="descclassname">viewflow.flow.</code><code class="descname">Join</code><span class="sig-paren">(</span><em>wait_all=True</em><span class="sig-paren">)</span><a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.Join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Waits for one or all incoming links and activates next path.</p>
+<p>Join should be connected to one split task only.</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">join_on_warehouse</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">Join</span><span class="p">()</span> \
+    <span class="o">.</span><span class="n">Next</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">next_task</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="function">
+<h2>Function<a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#function" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="viewflow.flow.Function">
+<em class="property">class </em><code class="descclassname">viewflow.flow.</code><code class="descname">Function</code><span class="sig-paren">(</span><em>func=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.Function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Node that can be executed within you code.</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="n">activation</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">activation</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+    <span class="c"># Your custom code</span>
+    <span class="n">activation</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">MyFlow</span><span class="p">(</span><span class="n">Flow</span><span class="p">):</span>
+    <span class="n">my_task</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">Function</span><span class="p">(</span><span class="n">my_function</span><span class="p">)</span>
+
+<span class="n">MyFlow</span><span class="o">.</span><span class="n">my_task</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Any kwarg you pass of the run call will be passed to the function.</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="handler">
+<h2>Handler<a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#handler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="viewflow.flow.Handler">
+<em class="property">class </em><code class="descclassname">viewflow.flow.</code><code class="descname">Handler</code><span class="sig-paren">(</span><em>handler=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.Handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Node that can be executed automatically after task was created.</p>
+<p>In difference to <a class="reference internal" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.Function" title="viewflow.flow.Function"><code class="xref py py-class docutils literal"><span class="pre">Function</span></code></a> a <a class="reference internal" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.Handler" title="viewflow.flow.Handler"><code class="xref py py-class docutils literal"><span class="pre">Handler</span></code></a> is not explicitly called
+in code, but executes automatically.</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">my_handler</span><span class="p">(</span><span class="n">activation</span><span class="p">):</span>
+    <span class="c"># Your custom code</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">MyFlow</span><span class="p">(</span><span class="n">Flow</span><span class="p">):</span>
+    <span class="n">previous_task</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">View</span><span class="p">(</span><span class="n">ProcessView</span><span class="p">)</span>                 <span class="o">.</span><span class="n">Next</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">my_task</span><span class="p">)</span>
+
+    <span class="n">my_task</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">Function</span><span class="p">(</span><span class="n">my_handler</span><span class="p">)</span>                 <span class="o">.</span><span class="n">Next</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">End</span><span class="p">)</span>
+
+    <span class="n">end</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">End</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You don’t need to call <code class="docutils literal"><span class="pre">prepare()</span></code> or <code class="docutils literal"><span class="pre">done()</span></code> on the
+activation in you handler callback.</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="signal">
+<h2>Signal<a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#signal" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="viewflow.flow.Signal">
+<em class="property">class </em><code class="descclassname">viewflow.flow.</code><code class="descname">Signal</code><span class="sig-paren">(</span><em>signal</em>, <em>receiver</em>, <em>sender=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.Signal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Node that connects to a django signal.</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">create_model</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">Signal</span><span class="p">(</span><span class="n">post_create</span><span class="p">,</span> <span class="n">my_receiver</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="n">MyModelCls</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Other than the <code class="xref py py-class docutils literal"><span class="pre">StartSignal</span></code> you will need to provide activation
+for your receiver yourself. This can be done using the <code class="xref py py-func docutils literal"><span class="pre">flow_signal()</span></code>
+decorator.</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="end">
+<h2>End<a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#end" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="viewflow.flow.End">
+<em class="property">class </em><code class="descclassname">viewflow.flow.</code><code class="descname">End</code><a class="headerlink" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#viewflow.flow.End" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ends process event.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="http://django-viewflow.readthedocs.io/en/latest/index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#">Flow tasks</a><ul>
+<li><a class="reference internal" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#start">Start</a></li>
+<li><a class="reference internal" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#view">View</a></li>
+<li><a class="reference internal" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#job">Job</a></li>
+<li><a class="reference internal" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#if">If</a></li>
+<li><a class="reference internal" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#switch">Switch</a></li>
+<li><a class="reference internal" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#split">Split</a></li>
+<li><a class="reference internal" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#join">Join</a></li>
+<li><a class="reference internal" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#function">Function</a></li>
+<li><a class="reference internal" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#handler">Handler</a></li>
+<li><a class="reference internal" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#signal">Signal</a></li>
+<li><a class="reference internal" href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html#end">End</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="http://django-viewflow.readthedocs.io/en/latest/core_concepts.html" title="previous chapter">Core concepts</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="http://django-viewflow.readthedocs.io/en/latest/locking.html" title="next chapter">Locking</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="http://django-viewflow.readthedocs.io/en/latest/_sources/flow_tasks.txt" rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="http://django-viewflow.readthedocs.io/en/latest/search.html" method="get">
+      <input type="text" name="q">
+      <input type="submit" value="Go">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="http://django-viewflow.readthedocs.io/en/latest/genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="http://django-viewflow.readthedocs.io/en/latest/locking.html" title="Locking">next</a> |</li>
+        <li class="right">
+          <a href="http://django-viewflow.readthedocs.io/en/latest/core_concepts.html" title="Core concepts">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="http://django-viewflow.readthedocs.io/en/latest/index.html">django-viewflow documentation</a> »</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        © Copyright 2014, Mikhail Podgurskiy.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  
+<!-- Inserted RTD Footer -->
+<div class="injected">
+
+  
+  <div class="rst-versions rst-badge" data-toggle="rst-versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book">&nbsp;</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      
+
+      
+      
+      
+      <dl>
+        <dt>Versions</dt>
+        
+         <strong> 
+        <dd><a href="http://django-viewflow.readthedocs.io/en/latest/flow_tasks.html">latest</a></dd>
+         </strong> 
+        
+        
+        <dd><a href="http://django-viewflow.readthedocs.io/en/stable/flow_tasks.html">stable</a></dd>
+        
+        
+      </dl>
+      
+      
+
+      
+      
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="http://readthedocs.org/projects/django-viewflow/downloads/pdf/latest/">PDF</a></dd>
+        
+        <dd><a href="http://readthedocs.org/projects/django-viewflow/downloads/htmlzip/latest/">HTML</a></dd>
+        
+        <dd><a href="http://readthedocs.org/projects/django-viewflow/downloads/epub/latest/">Epub</a></dd>
+        
+      </dl>
+      
+      
+
+      
+      <dl>
+        <!-- These are kept as relative links for internal installs that are http -->
+        <dt>On Read the Docs</dt>
+        <dd>
+          <a href="http://readthedocs.org/projects/django-viewflow/">Project Home</a>
+        </dd>
+        <dd>
+          <a href="http://readthedocs.org/projects/django-viewflow/builds/">Builds</a>
+        </dd>
+        <dd>
+          <a href="http://readthedocs.org/projects/django-viewflow/downloads/">Downloads</a>
+        </dd>
+      </dl>
+      
+
+      
+
+      
+      <dl>
+        <dt>On GitHub</dt>
+        <dd>
+          <a href="https://github.com/kmmbvnr/django-viewflow/blob/master/docs/flow_tasks.rst">View</a>
+        </dd>
+        <dd>
+          <a href="https://github.com/kmmbvnr/django-viewflow/edit/master/docs/flow_tasks.rst">Edit</a>
+        </dd>
+      </dl>
+      
+      
+
+      
+      <dl>
+        <dt>Search</dt>
+        <dd>
+          <div style="padding: 6px;">
+            <form id="flyout-search-form" class="wy-form" target="_blank" action="https://readthedocs.org/projects/django-viewflow/search/" method="get">
+              <input type="text" name="q" placeholder="Search docs">
+              </form>
+          </div>
+        </dd>
+      </dl>
+      
+
+
+
+      <hr>
+      
+      Free document hosting provided by <a href="https://readthedocs.org/">Read the Docs</a>. 
+      
+
+      
+    </div>
+  </div>
+  
+
+</div>
+</body></html>
