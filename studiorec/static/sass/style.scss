@@ -1735,7 +1735,7 @@ a > img {
 }
 
 #fh5co-action {
-  height: 300px;
+  min-height: 300px;
   background-size: cover;
   padding: 20px 0;
   .container {
@@ -1751,6 +1751,20 @@ a > img {
       }
     }
   }
+}
 
 
+.servicio .col-sm-6{
+  @media screen and (max-width: $screen-sm) {
+    margin-bottom: 80px;
+  }
+  
+}
+
+
+.main-page {
+   @media screen and (max-width: $screen-sm) {
+    margin: auto !important;
+  }
+    
 }
