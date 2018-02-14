@@ -1753,6 +1753,13 @@ a > img {
   }
 }
 
+.img-responsive{
+    -moz-box-shadow: 0px 5px 20px -1px #aaa;
+    -webkit-box-shadow: 0px 5px 20px -1px #aaa;
+    box-shadow: 0px 5px 20px -1px #aaa;
+}
+
+
 
 .servicio .col-sm-6{
   @media screen and (max-width: $screen-sm) {
