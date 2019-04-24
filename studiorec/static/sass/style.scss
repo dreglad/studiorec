@@ -239,8 +239,7 @@ textarea {
 
   &.fh5co-scrolled {
     padding: 0px 0;
-    background: rgba(0, 0, 0, .8);
-    background: rgba(0, 0, 0, 1);
+    background: #e2b91a;
     -webkit-box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
     -moz-box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
     -ms-box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
@@ -1682,7 +1681,7 @@ a > img {
     background-color: #ffffff;
   }
   &.blue:before {
-    background-color: #1f3549;
+    background-color: #e2b91a73;
   }
   &.green:before {
     background-color: green;
@@ -1691,7 +1690,7 @@ a > img {
     background-color: orange;
   }
   &.pink:before{
-    background-color: #9e3957;
+    background-color: #e5b912fc;
   }
   &.purple:before {
     background-color: #51346e;
