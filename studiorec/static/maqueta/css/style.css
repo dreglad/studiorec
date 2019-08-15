@@ -982,7 +982,9 @@ Components
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding: 3em 0;
   background-size: cover;
-  color: rgba(255, 255, 255, 0.8); }
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #181920;
+ }
   #fh5co-footer .logo {
     margin-bottom: 20px; }
   #fh5co-footer address {
@@ -1378,5 +1380,9 @@ a > img.fh5co-align-center {
       padding-top: 70px; }
       #fh5co-action .container article h2 {
         font-size: 40px; }
+
+.filer_image{
+  width: 100%;
+}
 
 /*# sourceMappingURL=style.css.map */
