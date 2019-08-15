@@ -533,8 +533,7 @@ textarea {
     width: 100%; }
     #fh5co-hero .fh5co-hero-wrap .fh5co-hero-intro {
       display: table-cell;
-      vertical-align: middle;
-      text-align: center; }
+      vertical-align: middle; }
       #fh5co-hero .fh5co-hero-wrap .fh5co-hero-intro > h1 {
         font-size: 45px;
         font-weight: normal;
@@ -990,7 +989,8 @@ Components
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding: 3em 0;
   background-size: cover;
-  color: rgba(255, 255, 255, 0.8); }
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #181920; }
   #fh5co-footer .logo img {
     margin-bottom: 20px; }
   #fh5co-footer address {
